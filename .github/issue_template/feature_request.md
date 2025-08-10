@@ -1,20 +1,19 @@
 ---
 name: Feature request
-about: Suggest an idea or enhancement for AI Agent
-labels: type:feature, P3-low
+about: Suggest an idea for AI Agent
+title: "[FEATURE] "
+labels: enhancement
+assignees: ''
 ---
 
-## Describe the feature
+## Is your feature request related to a problem? Please describe.
+A clear and concise description of what the problem is.
+
+## Describe the solution you'd like
 A clear and concise description of what you want to happen.
 
-## Problem it solves
-Explain what problem or need this feature addresses.
-
-## Possible solution
-Describe how you think this could be implemented.
-
-## Alternatives considered
-List any alternative solutions or features you've considered.
+## Describe alternatives you've considered
+A clear and concise description of any alternative solutions or features you've considered.
 
 ## Additional context
-Add any other context, screenshots, or mockups about the feature request here.
+Add any other context or screenshots about the feature request here.
