@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea or enhancement for AI Mirror
+about: Suggest an idea or enhancement for AI Agent
 labels: type:feature, P3-low
 ---
 
