@@ -1,57 +1,18 @@
 name: CI
 on:
-  pull_request:
-    branches: [ main ]
-  push:
-    branches: [ main ]
+  push: { branches: [ main ] }
+  pull_request: { branches: [ main ] }
+permissions: { contents: read }
 
 jobs:
-  CI_CD:
-    name: CI/CD
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node
-        if: hashFiles('package.json') != ''
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install deps
-        if: hashFiles('package.json') != ''
-        run: npm install
-
-  build:
-    name: build
-    runs-on: ubuntu-latest
-    needs: CI_CD
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node
-        if: hashFiles('package.json') != ''
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install deps
-        if: hashFiles('package.json') != ''
-        run: npm install
-      - name: Build
-        if: hashFiles('package.json') != ''
-        run: npm run build --if-present
-
-  test:
-    name: test
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node
-        if: hashFiles('package.json') != ''
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install deps
-        if: hashFiles('package.json') != ''
-        run: npm install
-      - name: Test
-        if: hashFiles('package.json') != ''
-        run: npm test --if-present
+  ci:
+    uses: globalprojob/.github/.github/workflows/node-ci.yml@main
+    with:
+      node-version: '20'
+      package-manager: 'npm'   # pnpm/yarn kullanıyorsan değiştir
+      install-cmd: 'ci'
+      build: true
+      test: true
+      working-directory: '.'
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
