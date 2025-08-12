@@ -1,3 +1,7 @@
+![CI](https://github.com/globalprojob/ai-mirror/actions/workflows/ci.yml/badge.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+
 # AI Agent
 Virtual employee and customer representative powered by AI.
 
